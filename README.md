@@ -75,6 +75,7 @@ Cleaning up
 links:
 
 ```
+- https://medium.com/@sphe.malgas/deploy-magento2-app-mysql-on-kubernetes-locally-via-minikube-558beebb0f
 - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 - https://github.com/alexcheng1982/docker-magento2
 - https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk
