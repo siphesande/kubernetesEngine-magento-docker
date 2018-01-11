@@ -18,10 +18,12 @@ NOTE: THIS IS STILL WORK IN PROGRESS
   ``` $ gcloud container clusters get-credentials cluster_name --zone us-central1-a --project project_name
       $ kubectl proxy
       You will get this: Starting to serve on 127.0.0.1:8001 (leave it open and work on the other terminal tap to avoid    terminating the process)
-      Open the Dashboard interface > http://localhost:8001/ui```
-  5.Create your persistent disks - $ gcloud compute disks create --size 200GB mysql-disk
-                                 - $ gcloud compute disks create --size 200GB magento2-disk
-```                                                                
+      Open the Dashboard interface > http://localhost:8001/ui
+  ```
+  5.Create your persistent disks
+  ``` $ gcloud compute disks create --size 200GB mysql-disk
+      $ gcloud compute disks create --size 200GB magento2-disk
+  ```                                                             
 MySQL deployment to Kubernetes and Set up
 
 First step to deploy MySQL is to create a Kubernetes Secret to store the password for the database. To create a Secret named mysql, run the following command (and replace YOUR_PASSWORD with a passphrase of your choice):
@@ -61,19 +63,16 @@ Cleaning up
  ``$ kubectl delete secret  mysql
     $ kubectl delete deployment -l app=magento2
     $ kubectl delete service -l app=magento2
-    (Do the same for mysql and phpmyadmin)
-    - You can also delete using kubernetes ui(Dashboard)
+    $ gcloud compute disks delete mysql-disk magento2-disk
 
-    If use Google cloud do this:
-     $ gcloud compute disks delete mysql-disk magento2-disk
      Delete the cluster, which deletes the resources used by the cluster, including virtual machines, disks, and network resources.
      $ gcloud container clusters delete cluster_name
      Alternately, you can delete the project in its entirety. To do so using the gcloud tool, run:
      $ gcloud projects delete ${PROJECT_ID}
+     You can also delete using kubernetes ui(Dashboard)
 ```
 
-
-Usefull links:
+links:
 
 ```
 - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
