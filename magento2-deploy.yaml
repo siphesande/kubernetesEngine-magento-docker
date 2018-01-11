@@ -28,11 +28,11 @@ spec:
           ports:
             - containerPort: 80
               name: magento2
-      #     volumeMounts:
-      #       - name: magento2-persistent-storage
-      #         mountPath: /var/www/html
-      # volumes:
-      #   - name: magento2-persistent-storage
-      #     gcePersistentDisk:
-      #       pdName: magento2-disk
-      #       fsType: ext4
+          volumeMounts:
+            - name: magento2-persistent-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: magento2-persistent-storage
+          gcePersistentDisk:
+            pdName: magento2-disk
+            fsType: ext4
