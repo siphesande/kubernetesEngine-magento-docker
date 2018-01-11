@@ -60,7 +60,7 @@ http://104_________:80/
 ```
 
 Cleaning up
- ``$ kubectl delete secret  mysql
+ ```$ kubectl delete secret  mysql
     $ kubectl delete deployment -l app=magento2
     $ kubectl delete service -l app=magento2
     $ gcloud compute disks delete mysql-disk magento2-disk
