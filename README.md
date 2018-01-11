@@ -28,7 +28,7 @@ First step to deploy MySQL is to create a Kubernetes Secret to store the passwor
 ```
 $ kubectl create secret generic mysql --from-literal=password=YOUR_PASSWORD
 ```
-```
+
 Deploy MySql
 ```
 $ kubectl create -f mysql.yaml
@@ -55,11 +55,10 @@ $ kubectl get services
 From this, you can now access your application by visiting the External IP address on port 80
 ```
 http://104_________:80/
+```
 
-```
-```
 Cleaning up
- $ kubectl delete secret  mysql
+ ``$ kubectl delete secret  mysql
     $ kubectl delete deployment -l app=magento2
     $ kubectl delete service -l app=magento2
     (Do the same for mysql and phpmyadmin)
@@ -71,15 +70,13 @@ Cleaning up
      $ gcloud container clusters delete cluster_name
      Alternately, you can delete the project in its entirety. To do so using the gcloud tool, run:
      $ gcloud projects delete ${PROJECT_ID}
-
 ```
+
+
 Usefull links:
 
 ```
-- https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/
 - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 - https://github.com/alexcheng1982/docker-magento2
-- https://scotch.io/tutorials/google-cloud-platform-i-deploy-a-docker-app-to-google-container-engine-with-kubernetes
 - https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk
-- https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
 ```
