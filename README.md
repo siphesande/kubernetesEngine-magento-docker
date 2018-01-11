@@ -9,13 +9,16 @@ NOTE: THIS IS STILL WORK IN PROGRESS
 - If you are using Google Cloud, make sure that you have done these:
   1. Installed Google Cloud SDK
   2. Created a Project
-  3. Created a cluster - $ gcloud container clusters create cluster_name
-                       - $ gcloud config set container/cluster cluster_name  
+  3. Created a cluster
+  ```- $ gcloud container clusters create cluster_name
+     - $ gcloud config set container/cluster cluster_name
+  ```
 
-  4. Connect to the cluster - $ gcloud container clusters get-credentials cluster_name --zone us-central1-a --project project_name
-                            - $ kubectl proxy
-                            - You will get this: Starting to serve on 127.0.0.1:8001 (leave it open and work on the other terminal tap to avoid    terminating the process)
-                            - Open the Dashboard interface > http://localhost:8001/ui
+  4. Connect to the cluster -
+  ``` $ gcloud container clusters get-credentials cluster_name --zone us-central1-a --project project_name
+      $ kubectl proxy
+      You will get this: Starting to serve on 127.0.0.1:8001 (leave it open and work on the other terminal tap to avoid    terminating the process)
+      Open the Dashboard interface > http://localhost:8001/ui```
   5.Create your persistent disks - $ gcloud compute disks create --size 200GB mysql-disk
                                  - $ gcloud compute disks create --size 200GB magento2-disk
 ```                                                                
@@ -53,8 +56,9 @@ From this, you can now access your application by visiting the External IP addre
 http://104_________:80/
 
 ```
+```
 Cleaning up
-``` $ kubectl delete secret  mysql
+ $ kubectl delete secret  mysql
     $ kubectl delete deployment -l app=magento2
     $ kubectl delete service -l app=magento2
     (Do the same for mysql and phpmyadmin)
