@@ -28,6 +28,7 @@ First step to deploy MySQL is to create a Kubernetes Secret to store the passwor
 ```
 $ kubectl create secret generic mysql --from-literal=password=YOUR_PASSWORD
 ```
+```
 Deploy MySql
 ```
 $ kubectl create -f mysql.yaml
@@ -73,6 +74,7 @@ Cleaning up
 
 ```
 Usefull links:
+
 ```
 - https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/
 - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
