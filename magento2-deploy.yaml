@@ -18,9 +18,9 @@ spec:
         - image: alexcheng/magento2    #gcr.io/$PROJECT_ID/alexcheng/magento2
           name: magento2
           env:
-          - name: MYSQL_HOST
-            value: mysql:5.6
-          - name: MYSQL_ROOT_PASSWORD
+          - name: MAGENTO_DB_HOST
+            value: mysql:3306
+          - name: MAGENTO_DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: mysql
@@ -28,11 +28,4 @@ spec:
           ports:
             - containerPort: 80
               name: magento2
-          volumeMounts:
-            - name: magento2-persistent-storage
-              mountPath: /var/www/html
-      volumes:
-        - name: magento2-persistent-storage
-          gcePersistentDisk:
-            pdName: magento2-disk
-            fsType: ext4
+          
