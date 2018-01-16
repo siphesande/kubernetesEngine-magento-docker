@@ -15,11 +15,11 @@ spec:
         app: magento2
     spec:
       containers:
-        - image: alexcheng/magento2    #gcr.io/$PROJECT_ID/alexcheng/magento2
+        - image: alexcheng/magento2
           name: magento2
           env:
           - name: MAGENTO_DB_HOST
-            value: mysql:3306
+            value: mysql:3.6
           - name: MAGENTO_DB_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -28,4 +28,3 @@ spec:
           ports:
             - containerPort: 80
               name: magento2
-          
